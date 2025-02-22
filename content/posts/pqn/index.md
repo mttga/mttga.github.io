@@ -29,7 +29,7 @@ We leverage environment vectorisation and network normalisation to train a moder
 Useful links:  
 - [🚀 Jax original PQN implementation](https://github.com/mttga/purejaxql)  
 - [🔥 PyTorch PQN implementation in Cleanrl](https://github.com/vwxyzjn/cleanrl/blob/master/cleanrl/pqn.py)  
-- [🖥️ Colab Demo](https://colab.research.google.com/github/mttga/mttga.github.io/blob/main/pqn_demo.ipynb)  
+- [🖥️ Colab Demo](https://colab.research.google.com/github/mttga/mttga.github.io/blob/main/content/posts/pqn/pqn_demo.ipynb)  
 - [📝 Paper](https://arxiv.org/abs/2407.04811)  
 
 <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">🚀 We&#39;re very excited to introduce Parallelised Q-Network (PQN), the result of an effort to bring Q-Learning into the world of pure-GPU training based on JAX!<br><br>What’s the issue? Pure-GPU training can accelerate RL by orders of magnitude. However, Q-Learning heavily relies on… <a href="https://t.co/aBA0IPF0By">pic.twitter.com/aBA0IPF0By</a></p>&mdash; Matteo Gallici (@MatteoGallici) <a href="https://twitter.com/MatteoGallici/status/1811656869385060737?ref_src=twsrc%5Etfw">July 12, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>  
@@ -138,7 +138,7 @@ To train an off-policy algorithm in a vectorised manner, we need a fast and stab
 
 ## 👷‍♂️ Code example
 
-Implementing and using PQN is simple. The following self-contained snippet can be used to train fully on GPU PQN in Minatar, including testing, WANDB logging, and running multiple runs (seeds) in parallel on the same GPU.
+Implementing and using PQN is simple. The following self-contained snippet can be used to train fully on GPU PQN in Minatar, including testing, WANDB logging, and running multiple runs (seeds) in parallel on the same GPU. [You can try this code in Colab now!](https://colab.research.google.com/github/mttga/mttga.github.io/blob/main/content/posts/pqn/pqn_demo.ipynb)
 
 
 <!-- Add this CSS to your blog's stylesheet or inline -->
