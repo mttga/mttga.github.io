@@ -29,7 +29,7 @@ We leverage environment vectorisation and network normalisation to train a moder
 Useful links:  
 - [🚀 Jax original PQN implementation](https://github.com/mttga/purejaxql)  
 - [🔥 PyTorch PQN implementation in Cleanrl](https://github.com/vwxyzjn/cleanrl/blob/master/cleanrl/pqn.py)  
-- [🖥️ Colab Demo](https://drive.google.com/file/d/1x1k1snM6zBoO8SgHFqJwiHquWoKNZdkE/view?usp=sharing)  
+- [🖥️ Colab Demo](https://colab.research.google.com/github/mttga/mttga.github.io/blob/main/pqn_demo.ipynb)  
 - [📝 Paper](https://arxiv.org/abs/2407.04811)  
 
 <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">🚀 We&#39;re very excited to introduce Parallelised Q-Network (PQN), the result of an effort to bring Q-Learning into the world of pure-GPU training based on JAX!<br><br>What’s the issue? Pure-GPU training can accelerate RL by orders of magnitude. However, Q-Learning heavily relies on… <a href="https://t.co/aBA0IPF0By">pic.twitter.com/aBA0IPF0By</a></p>&mdash; Matteo Gallici (@MatteoGallici) <a href="https://twitter.com/MatteoGallici/status/1811656869385060737?ref_src=twsrc%5Etfw">July 12, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>  
@@ -42,7 +42,7 @@ Q-learning has played a foundational role in the field of reinforcement learning
 
 ---
 
-## Quick Stats  
+## ⚡️ Quick Stats  
 
 With PQN and a single NVIDIA A40 (achieving similar performance to an RTX 3090), you can:  
 - 🦿 Train agents for simple tasks like CartPole and Acrobot in a few seconds.  
@@ -75,9 +75,9 @@ With PQN and a single NVIDIA A40 (achieving similar performance to an RTX 3090),
 
 ---
 
-## Performances  
+## 🦾 Performances  
 
-### Atari  
+### 🕹️ Atari  
 
 Currently, after around 4 hours of training and 400M environment frames, PQN can achieve a median score similar to the original Rainbow paper in ALE, reaching scores higher than humans in 40 of the 57 Atari games. While this is far from the latest SOTA in ALE, it can serve as a good starting point for faster research in ALE.  
 
@@ -98,7 +98,7 @@ Currently, after around 4 hours of training and 400M environment frames, PQN can
   </tr>  
 </table>  
 
-### Craftax  
+### 👾 Craftax  
 
 When combined with an RNN network, PQN offers a more sample-efficient baseline compared to PPO. As an off-policy algorithm, PQN could be an interesting starting point for population-based training in Craftax!  
 
@@ -106,7 +106,7 @@ When combined with an RNN network, PQN offers a more sample-efficient baseline c
   <img src="images/craftax_rnn.png" alt="craftax_rnn" width="300" style="max-width: 100%;"/>  
 </div>  
 
-### Multi-Agent (JaxMarl)  
+### 👥 Multi-Agent (JaxMarl)  
 
 When combined with Value Decomposition Networks, PQN is a strong baseline for multi-agent tasks.  
 
@@ -125,7 +125,18 @@ When combined with Value Decomposition Networks, PQN is a strong baseline for mu
 
 ---
 
-## Code example
+## 🧐 How does it work
+
+The idea behind PQN is simple. Originally, DQN used a replay buffer to sample batches of experiences, as training in batches is crucial for deep learning. However, if we can acquire enough experiences directly from a parallelised interaction with an environment and use them for our batches, storing experiences in a replay buffer is no longer necessary. This is the idea behind algorithms like A2C and PPO, and it can be very beneficial in modern pure-GPU training, where we have the ability to sample many experiences in parallel but a limited amount of GPU memory to store them (note that this is the opposite scenario to the one in which DQN was originally implemented, where sampling experiences from single environments on the CPU was expensive, but storing experiences in RAM or on disk was cheap). However, A2C and PPO focus on on-policy algorithms. PQN demonstrates that, if vectorisation is done properly and learning is stabilised via network normalisation, we can apply the same regime used by A2C and PPO to an off-policy algorithm, such as Q-Learning with epsilon-greedy. This effectively brings standard Q-Learning into a pure-GPU regime!
+
+<img src="images/overview.png" alt="Atari-57_tau" width="800" style="max-width: 100%; display: block; margin: 0 auto;"/>  
+
+To train an off-policy algorithm in a vectorised manner, we need a fast and stable algorithm. This is where network normalisation comes into play. Check out our other blog post [TODO: ADD LINK], where we delve into the theory behind the role of network normalisation in TD Learning, showing how it can effectively stabilise training without the need for target networks.
+
+
+---
+
+## 👷‍♂️ Code example
 
 Implementing and using PQN is simple. The following self-contained snippet can be used to train fully on GPU PQN in Minatar, including testing, WANDB logging, and running multiple runs (seeds) in parallel on the same GPU.
 
@@ -187,6 +198,23 @@ Implementing and using PQN is simple. The following self-contained snippet can b
 <div class="gist-container">
   <script src="https://gist.github.com/mttga/32c5adb6f5290244a190d94278ece6a3.js"></script>
 </div>
+
+---
+
+
+## Related Projects
+
+The following repositories are related to pure-GPU RL training:
+
+- [PureJaxRL](https://github.com/luchris429/purejaxrl)
+- [JaxMARL](https://github.com/FLAIROx/JaxMARL)
+- [Jumanji](https://github.com/instadeepai/jumanji)
+- [JAX-CORL](https://github.com/nissymori/JAX-CORL)
+- [JaxIRL](https://github.com/FLAIROx/jaxirl)
+- [Pgx](https://github.com/sotetsuk/pgx)
+- [Mava](https://github.com/instadeepai/Mava)
+- [XLand-MiniGrid](https://github.com/corl-team/xland-minigrid)
+- [Craftax](https://github.com/MichaelTMatthews/Craftax/tree/main)
 
 ---
 
