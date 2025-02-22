@@ -17,7 +17,7 @@ Oct. '21 - May `24 | Barcelona
 
 **Universitat Politècnica de Catalunya** \
 *Phd Artificial Intelligence* \
-Aug. '22 - Today | Barcelona
+Feb. '23 - Today | Barcelona
 
 **Universitat Politècnica de Catalunya** \
 *Master of Science in Artificial Intelligence* \
