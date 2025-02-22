@@ -1,0 +1,99 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'matteo gallici'
+
+[module]
+[[module.imports]]
+path = "github.com/tomfran/typo"
+
+[taxonomies]
+tag = 'tags'
+
+[params]
+# Meta description
+description = "Personal website of Matteo Gallici, Reiforcement Learning Phd Candidate in Barcelona."
+
+# Appearance settings
+theme = 'auto'
+colorPalette = 'default'
+hideHeader = false
+showFooter = false
+
+# Intro on main page, content is markdown
+homeIntroTitle = '~'
+homeIntroContent = """
+I am a PhD candidate in Reinforcement Learning at UPC, Barcelona. 
+My research focuses on improving the efficiency and stability of (multi-agent) RL. 
+My background is both in computer science and philosophy.
+"""
+
+# Collection to display on home
+homeCollectionTitle = 'Posts'
+homeCollection = 'posts'
+
+# Lists parameters
+paginationSize = 100
+listSummaries = true
+listDateFormat = '2 Jan 2006'
+
+# Breadcrumbs
+breadcrumbs = true
+
+# Social icons
+[[params.social]]
+name = "x"
+url = "https://x.com/MatteoGallici"
+
+[[params.social]]
+name = "github"
+url = "https://github.com/mttga"
+
+[[params.social]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/matteo-gallici/"
+
+
+# Main menu pages
+[[params.menu]]
+name = "home"
+url = "/"
+
+[[params.menu]]
+name = "posts"
+url = "/posts"
+
+[[params.menu]]
+name = "about"
+url = "/about"
+
+# Syntax highlight on code blocks
+[markup]
+[markup.highlight]
+style = 'bw'
+
+# Deploy settings
+
+[[deployment.matchers]]
+pattern = "^.+\\.(js|css|svg|ttf|woff2)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = true
+
+[[deployment.matchers]]
+pattern = "^.+\\.(png|jpg|gif|webp)$"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = false
+
+[params.giscus]
+enable = false
+repo = "tomfran/blog"
+repoid = "R_kgDOLtSszw"
+category = "General"
+categoryid = "DIC_kwDOLtSsz84CfLm4"
+mapping = "pathname"
+theme = "preferred_color_scheme"
+
+[params.umami]
+enable = true
+websiteId = "cc219028-551e-4f3b-bbc7-e124ca907ce0"
+jsLocation = "https://cloud.umami.is/script.js"
+
