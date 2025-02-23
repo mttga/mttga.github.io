@@ -24,23 +24,23 @@ We leverage environment vectorisation and network normalisation to train a moder
 1. **Simplicity**: PQN is a very simple baseline, essentially an online Q-learner with vectorised environments and network normalisation.  
 2. **Speed**: PQN runs without a replay buffer and target networks, ensuring significant speed-ups and sample efficiency.  
 3. **Stability**: PQN uses network normalisation to stabilise training.  
-4. **Flexibility**: PQN is easily compatible with RNNs, $Q(\lambda)$ returns, and multi-agent tasks.  
+4. **Flexibility**: PQN is easily compatible with RNNs, $Q(\lambda)$ returns, and multi-agent tasks. 
 
-Useful links:  
-- [🚀 Jax original PQN implementation](https://github.com/mttga/purejaxql)  
-- [🔥 PyTorch PQN implementation in Cleanrl](https://github.com/vwxyzjn/cleanrl/blob/master/cleanrl/pqn.py)  
-- [🖥️ Colab Demo](https://colab.research.google.com/github/mttga/mttga.github.io/blob/main/content/posts/pqn/pqn_demo.ipynb)  
-- [📝 Paper](https://arxiv.org/abs/2407.04811)  
+**Useful links**
+
+[🚀 Jax implementation](https://github.com/mttga/purejaxql)  
+[🔥 PyTorch Cleanrl implementation](https://github.com/vwxyzjn/cleanrl/blob/master/cleanrl/pqn.py)  
+[🖥️ Colab Demo](https://colab.research.google.com/github/mttga/mttga.github.io/blob/main/content/posts/pqn/pqn_demo.ipynb)  
+[📝 Paper](https://arxiv.org/abs/2407.04811)  
+
 
 <blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">🚀 We&#39;re very excited to introduce Parallelised Q-Network (PQN), the result of an effort to bring Q-Learning into the world of pure-GPU training based on JAX!<br><br>What’s the issue? Pure-GPU training can accelerate RL by orders of magnitude. However, Q-Learning heavily relies on… <a href="https://t.co/aBA0IPF0By">pic.twitter.com/aBA0IPF0By</a></p>&mdash; Matteo Gallici (@MatteoGallici) <a href="https://twitter.com/MatteoGallici/status/1811656869385060737?ref_src=twsrc%5Etfw">July 12, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>  
-
----
 
 ## Abstract  
 
 Q-learning has played a foundational role in the field of reinforcement learning (RL). However, TD algorithms with off-policy data, such as Q-learning, or nonlinear function approximation like deep neural networks, require several additional tricks to stabilise training, primarily a replay buffer and target networks. Unfortunately, the delayed updating of frozen network parameters in the target network harms sample efficiency, and similarly, the replay buffer introduces memory and implementation overheads. In this paper, we investigate whether it is possible to accelerate and simplify TD training while maintaining its stability. Our key theoretical result demonstrates for the first time that regularisation techniques such as LayerNorm can yield provably convergent TD algorithms without the need for a target network, even with off-policy data. Empirically, we find that online, parallelised sampling enabled by vectorised environments stabilises training without the need for a replay buffer. Motivated by these findings, we propose PQN, our simplified deep online Q-Learning algorithm. Surprisingly, this simple algorithm is competitive with more complex methods like Rainbow in Atari, R2D2 in Hanabi, QMix in Smax, and PPO-RNN in Craftax, and can be up to 50x faster than traditional DQN without sacrificing sample efficiency. In an era where PPO has become the go-to RL algorithm, PQN re-establishes Q-learning as a viable alternative.  
 
----
+
 
 ## ⚡️ Quick Stats  
 
@@ -72,8 +72,6 @@ With PQN and a single NVIDIA A40 (achieving similar performance to an RTX 3090),
     </td>  
   </tr>  
 </table>  
-
----
 
 ## 🦾 Performances  
 
@@ -123,18 +121,14 @@ When combined with Value Decomposition Networks, PQN is a strong baseline for mu
   </tr>  
 </table>  
 
----
-
 ## 🧐 How does it work
 
 The idea behind PQN is simple. Originally, DQN used a replay buffer to sample batches of experiences, as training in batches is crucial for deep learning. However, if we can acquire enough experiences directly from a parallelised interaction with an environment and use them for our batches, storing experiences in a replay buffer is no longer necessary. This is the idea behind algorithms like A2C and PPO, and it can be very beneficial in modern pure-GPU training, where we have the ability to sample many experiences in parallel but a limited amount of GPU memory to store them (note that this is the opposite scenario to the one in which DQN was originally implemented, where sampling experiences from single environments on the CPU was expensive, but storing experiences in RAM or on disk was cheap). However, A2C and PPO focus on on-policy algorithms. PQN demonstrates that, if vectorisation is done properly and learning is stabilised via network normalisation, we can apply the same regime used by A2C and PPO to an off-policy algorithm, such as Q-Learning with epsilon-greedy. This effectively brings standard Q-Learning into a pure-GPU regime!
 
 <img src="images/overview.png" alt="Atari-57_tau" width="800" style="max-width: 100%; display: block; margin: 0 auto;"/>  
 
-To train an off-policy algorithm in a vectorised manner, we need a fast and stable algorithm. This is where network normalisation comes into play. Check out our other blog post [TODO: ADD LINK], where we delve into the theory behind the role of network normalisation in TD Learning, showing how it can effectively stabilise training without the need for target networks.
+To train an off-policy algorithm in a vectorised manner, we need a fast and stable algorithm. This is where network normalisation comes into play. Check out our other blog post [TODO: ADD LINK], where we delve into the theory behind the role of network normalisation in TD Learning, and we avvocate for the use of Layer Normalisation, showing how it can effectively stabilise training without the need for target networks.
 
-
----
 
 ## 👷‍♂️ Code example
 
@@ -215,8 +209,6 @@ The following repositories are related to pure-GPU RL training:
 - [Mava](https://github.com/instadeepai/Mava)
 - [XLand-MiniGrid](https://github.com/corl-team/xland-minigrid)
 - [Craftax](https://github.com/MichaelTMatthews/Craftax/tree/main)
-
----
 
 ## Citation  
 
