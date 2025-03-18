@@ -15,7 +15,7 @@ safeMode: unsafe
 
 ---
 
-> This blog provides a general overview of PQN. For a deeper theoretical analysis of PQN, check out this other blog post. [TODO:MISSING LINK]
+> This blog provides a general overview of PQN. For a deeper theoretical analysis of PQN, [check out this other blog post](https://blog.foersterlab.com/fixing-td-part-1).
 
 ## TL;DR  
 
@@ -127,7 +127,7 @@ The idea behind PQN is simple. Originally, DQN used a replay buffer to sample ba
 
 <img src="images/overview.png" alt="Atari-57_tau" width="800" style="max-width: 100%; display: block; margin: 0 auto;"/>  
 
-To train an off-policy algorithm in a vectorised manner, we need a fast and stable algorithm. This is where network normalisation comes into play. Check out our other blog post [TODO: ADD LINK], where we delve into the theory behind the role of network normalisation in TD Learning, and we avvocate for the use of Layer Normalisation, showing how it can effectively stabilise training without the need for target networks.
+To train an off-policy algorithm in a vectorised manner, we need a fast and stable algorithm. This is where network normalisation comes into play. Check out [our other blog post](https://blog.foersterlab.com/fixing-td-part-1), where we delve into the theory behind the role of network normalisation in TD Learning, and we avvocate for the use of Layer Normalisation, showing how it can effectively stabilise training without the need for target networks.
 
 
 ## 👷‍♂️ Code example

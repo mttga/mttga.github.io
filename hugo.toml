@@ -14,7 +14,7 @@ tag = 'tags'
 description = "Personal website of Matteo Gallici, Reiforcement Learning Phd Candidate in Barcelona."
 
 # Appearance settings
-theme = 'auto'
+theme = 'dark'
 colorPalette = 'default'
 hideHeader = false
 showFooter = false
