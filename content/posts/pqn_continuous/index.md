@@ -235,7 +235,7 @@ Following results are averaged across 5 seeds and training all algorithms for a 
 
 <!-- Container for the Gist -->
 <div class="gist-container">
-  <script src="http://gist.github.com/mttga/1b0cb1c48414b5f0a66385da47ce3106.js"></script>
+  <script src="https://gist.github.com/mttga/1b0cb1c48414b5f0a66385da47ce3106.js"></script>
 </div>
 
 
