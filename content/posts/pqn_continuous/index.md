@@ -272,3 +272,10 @@ Following results are averaged across 5 seeds and training all algorithms for a 
     url={https://arxiv.org/abs/2407.04811},
 }
 ``` 
+
+```  
+Notice:
+
+PQN for Continuous Control will be included 
+in a new version of the above paper after review.
+``` 
