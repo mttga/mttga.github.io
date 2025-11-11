@@ -213,13 +213,15 @@ The following repositories are related to pure-GPU RL training:
 ## Citation  
 
 ```  
-@misc{gallici2024simplifyingdeeptemporaldifference,  
-      title={Simplifying Deep Temporal Difference Learning},  
-      author={Matteo Gallici and Mattie Fellows and Benjamin Ellis and Bartomeu Pou and Ivan Masmitja and Jakob Nicolaus Foerster and Mario Martin},  
-      year={2024},  
-      eprint={2407.04811},  
-      archivePrefix={arXiv},  
-      primaryClass={cs.LG},  
-      url={https://arxiv.org/abs/2407.04811},  
+@article{Gallici25simplifying,
+    title={Simplifying Deep Temporal Difference Learning},
+    author={Matteo Gallici and Mattie Fellows and Benjamin Ellis
+     and Bartomeu Pou and Ivan Masmitja and Jakob Nicolaus Foerster
+      and Mario Martin},
+    year={2025}, 
+    eprint={2407.04811},
+    journal={The International Conference on Learning Representations (ICLR)},
+    primaryClass={cs.LG},
+    url={https://arxiv.org/abs/2407.04811},
 }  
 ```  
