@@ -42,7 +42,7 @@ Exploration is achieved by injecting **Gaussian noise off-policy**, while **stab
 
 ## ⚡️ quick stats  
 
-We evaluate **Actor–Critic PQN** across three main domains, for a total of 50 tasks:
+We evaluate **Actor–Critic PQN** across three main domains of Mujoco Playground, for a total of 50 tasks:
 
 1. **DeepMind Control Suite** – Classic continuous control benchmarks including *CartPole*, *Walker*, *Cheetah*, and *Hopper*.  
 2. **Locomotion Tasks** – Control of quadrupeds and humanoids such as *Unitree Go1*, *Boston Dynamics Spot*, *Google Barkour*, *Unitree H1/G1*, *Berkeley Humanoid*, *Booster T1*, and *Robotis OP3*.  
@@ -75,7 +75,7 @@ Following results are averaged across 5 seeds and training all algorithms for a 
 
 ---
 
-## 🎭 actor–Critic PQN  
+## 🎭 actor–critic PQN  
 
 PQN can be naturally extended to continuous action spaces by adopting an **actor–critic** framework, in which an additional deterministic actor network is trained jointly with the $Q$-network (critic).  
 This configuration closely resembles the Deep Deterministic Policy Gradient (DDPG), while preserving PQN’s **online**, **parallelised**, and **normalised** structure.  
@@ -153,7 +153,7 @@ We now provide a unified repository where you can train **PQN** across a wide ra
 
 ## complete results
 
-Following results are averaged across 5 seeds and training all algorithms for a maximum of 1e8 environment (5e7 for FastTD3 and PQN in DM Suite) steps using H100 GPUs. PQN performs very well on most of DMSuite and Locomotion tasks, but seems to struggle more in the manipulation domain. Some environments are not included in the plots since we were not able to replicate original results, or the environment returned NaN rewards during training. These include:
+Following results are averaged across 5 seeds and training all algorithms for a maximum of 1e8 environment (5e7 for FastTD3 and PQN in DM Suite) steps using H100 GPUs. PQN performs very well on most of DMSuite and Locomotion tasks, but seems to struggle more in the manipulation domain. Some environments are not included in the plots since we were not able to replicate original results, or the environment consistently returned NaN rewards during training. These include:
 
 - DM Suite: HumanoidStand, HumanoidWalk, HumanoidRun
 - Locomotion: BarkourJoystick.

@@ -223,5 +223,5 @@ The following repositories are related to pure-GPU RL training:
     journal={The International Conference on Learning Representations (ICLR)},
     primaryClass={cs.LG},
     url={https://arxiv.org/abs/2407.04811},
-}  
+}
 ```  
