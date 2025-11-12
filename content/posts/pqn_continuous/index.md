@@ -34,7 +34,7 @@ Exploration is achieved by injecting **Gaussian noise off-policy**, while **stab
 
 <div style="text-align: center;">
 
-[🚀 **jax implementation** 🚀](https://github.com/mttga/purejaxql)  
+[🚀 **jax implementation** 🚀](https://github.com/mttga/purejaxql/blob/main/purejaxql/pqn_mujoco_playground.py)  
 
 </div>
 
@@ -148,6 +148,15 @@ We now provide a unified repository where you can train **PQN** across a wide ra
 - [craftax](https://github.com/mttga/purejaxql/blob/main/purejaxql/pqn_rnn_craftax.py)
 - [multi-agent tasks](https://github.com/mttga/purejaxql/blob/main/purejaxql/pqn_vdn_rnn_jaxmarl.py)
 - [continuous control](https://github.com/mttga/purejaxql/blob/main/purejaxql/pqn_mujoco_playground.py)
+
+
+### simplified jax scripts
+Additionally, we now also provide simplified jax scripts at purejaxql/simplified for smoothing the jax learning curve. These scripts are designed to be more accessible and easier to understand for those who are new to JAX. They cover basic implementations of PQN for various environments, including MinAtar, Atari and Mujoco Playground:
+
+- [minatar](https://github.com/mttga/purejaxql/blob/main/purejaxql/simplified/pqn_minatar_simple.py)
+- [atari](https://github.com/mttga/purejaxql/blob/main/purejaxql/simplified/pqn_atari_simple.py)
+- [continuous control](https://github.com/mttga/purejaxql/blob/main/purejaxql/simplified/pqn_mujoco_playground_simple.py)
+
 
 ---
 
