@@ -28,9 +28,9 @@ safeMode: unsafe
   <video src="images/manipulation_grid.mp4" alt="dm_suite_grid" width="1200" style="max-width: 100%; display: block; margin: 0 auto;" autoplay loop muted playsinline/>  
 </div> 
 
-We are excited to announce the extension of **Parallel Q-Networks (PQN)** to **continuous action control**. As always, PQN relies on **parallelisation and network normalisation**—no replay buffers, no target networks. Just **basic Q-learning**, now combined with a **deterministic actor** trained jointly with the critic in standard DDPG-style.
+We are excited to introduce the extension of **Parallel Q-Networks (PQN)** to **continuous action control**. As always, PQN relies on **parallelisation and network normalisation**—no replay buffers, no target networks. Just **basic Q-learning**, now combined with a **deterministic actor** trained jointly with the critic in standard DDPG-style.
 
-Exploration is achieved by injecting **Gaussian noise off-policy**, while **stability** emerges naturally from **Layer Normalisation and large-scale parallelisation**. PQN for continuous control runs in seconds or minutes and can scale to a wide variety of robotic and control tasks within MuJoCo playground, making the resulting policies directly transferable to real robots.
+Exploration is achieved by injecting **Gaussian noise off-policy**, while **stability** emerges naturally from **Layer Normalisation and large-scale parallelisation**. PQN for continuous control can learn **compltely on GPU** many robotic and control tasks within MuJoCo playground, making the resulting policies directly transferable to real robots.
 
 <div style="text-align: center;">
 
