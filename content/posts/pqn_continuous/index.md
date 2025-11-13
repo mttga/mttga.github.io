@@ -34,7 +34,9 @@ Exploration is achieved by injecting **Gaussian noise off-policy**, while **stab
 
 <div style="text-align: center;">
 
-[🚀 **jax implementation** 🚀](https://github.com/mttga/purejaxql/blob/main/purejaxql/pqn_mujoco_playground.py)  
+[👀 **what is pqn? 👀**](https://mttga.github.io/posts/pqn/)
+
+[🚀 **jax implementation** 🚀](https://github.com/mttga/purejaxql/blob/main/purejaxql/pqn_mujoco_playground.py)
 
 </div>
 
