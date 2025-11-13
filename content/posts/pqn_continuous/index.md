@@ -1,9 +1,9 @@
 ---
 
-title: "Parallel Q-Networks for Continuous Action Spaces"  
+title: "Parallelised Q-Network for Continuous Action Spaces"  
 date: '2025-11-10'  
 summary: "Extension of PQN to continuous action spaces."  
-description: "Extending Parallel Q-Networks to continuous action control domains with an actor–critic formulation and full parallelisation."  
+description: "Extending Parallelised Q-Networkto continuous action control domains with an actor–critic formulation and full parallelisation."  
 toc: false  
 readTime: true  
 math: true  
@@ -28,7 +28,7 @@ safeMode: unsafe
   <video src="images/manipulation_grid.mp4" alt="dm_suite_grid" width="1200" style="max-width: 100%; display: block; margin: 0 auto;" autoplay loop muted playsinline/>  
 </div> 
 
-We are excited to introduce the extension of **Parallel Q-Networks (PQN)** to **continuous action control**. As always, PQN relies on **parallelisation and network normalisation**—no replay buffers, no target networks. Just **basic Q-learning**, now combined with a **deterministic actor** trained jointly with the critic in standard DDPG-style.
+We are excited to introduce the extension of **Parallelised Q-Network (PQN)** to **continuous action control**. As always, PQN relies on **parallelisation and network normalisation**—no replay buffers, no target networks. Just **basic Q-learning**, now combined with a **deterministic actor** trained jointly with the critic in standard DDPG-style.
 
 Exploration is achieved by injecting **Gaussian noise off-policy**, while **stability** emerges naturally from **Layer Normalisation and large-scale parallelisation**. PQN for continuous control can learn **compltely on GPU** many robotic and control tasks within MuJoCo playground, making the resulting policies directly transferable to real robots.
 
